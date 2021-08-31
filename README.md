@@ -13,3 +13,5 @@
 
 3. Go to http://0.0.0.0:3001/
 
+# Webapp screenshoot
+![alt text](https://github.com/Nhan121/Udacity_project2_disaster_response/blob/main/Fig_1_1.jpg)
