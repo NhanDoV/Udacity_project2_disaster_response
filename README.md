@@ -3,7 +3,7 @@ In a terminal that contains this README file, run commands in the following sequ
 
 `python data/process_data.py` `data/disaster_messages.csv` `data/disaster_categories.csv` `data/DisasterResponse.db`
     
-`python models/train_classifier.py` `data/DisasterResponse.db` `models/classifier.pkl`
+`python model/train_classifier.py` `data/DisasterResponse.db` `model/classifier.pkl`
 
 `python run.py`
 
