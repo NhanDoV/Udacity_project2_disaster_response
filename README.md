@@ -7,11 +7,11 @@
 # Instruction
 In a terminal that contains this README file, run commands in the following sequence:
 
-`python data/process_data.py` `data/disaster_messages.csv` `data/disaster_categories.csv` `data/DisasterResponse.db`
+- `python data/process_data.py` `data/disaster_messages.csv` `data/disaster_categories.csv` `data/DisasterResponse.db`
     
-`python model/train_classifier.py` `data/DisasterResponse.db` `model/classifier.pkl`
+- `python model/train_classifier.py` `data/DisasterResponse.db` `model/classifier.pkl`
 
-`python run.py`
+- `python run.py`
 
 Go to the [website](http://0.0.0.0:3001/) and if facing problems try http://localhost:3001 in a browser
 
