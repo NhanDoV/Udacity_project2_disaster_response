@@ -24,8 +24,10 @@ def load_data(database_filepath):
             category_names : name of 36 categories
     """
 
-    engine = create_engine('sqlite:///InsertDatabaseName.db')
-    df = pd.read_sql_table(database_filepath, engine)
+    engine = create_engine('sqlite:///' + str (database_filepath))
+    df = pd.read_sql ('SELECT * FROM DisasterResponse', engine)
+    #engine = create_engine('sqlite:///InsertDatabaseName.db')
+    #df = pd.read_sql_table(database_filepath, engine)
     X = df['message'].values
     y = df.iloc[:, 4:].values
     category_names = list(df.iloc[:, 4:].columns)
