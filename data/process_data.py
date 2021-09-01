@@ -45,9 +45,8 @@ def clean_data(df):
 def save_data(df, database_filename):
     """This function help to save dataframe to database"""
 
-    from sqlalchemy.engine import create_engine
-    engine = create_engine('sqlite:///InsertDatabaseName.db')
-    df.to_sql(database_filename, engine, index=False)  
+    engine = create_engine('sqlite:///'+ str (database_filepath))
+    df.to_sql('MessagesCategories', engine, index=False, if_exists = 'replace')
 
 def main():
     if len(sys.argv) == 4:
