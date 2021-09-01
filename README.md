@@ -14,6 +14,8 @@ In the web app, you may input any text message (in English) and it will categori
 # Webapp screenshoot
 ![alt text](https://github.com/Nhan121/Udacity_project2_disaster_response/blob/main/Fig_1_1.jpg)
 
+# Visualizations using data from the SQLite database.
+
 ![alt text](https://github.com/Nhan121/Udacity_project2_disaster_response/blob/main/Fig_1_2.jpg)
 
 ![alt text](https://github.com/Nhan121/Udacity_project2_disaster_response/blob/main/Fig_1_3.jpg)
