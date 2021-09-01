@@ -8,6 +8,8 @@ from sklearn.multioutput import MultiOutputClassifier
 from sklearn.ensemble import RandomForestClassifier
 from nltk import word_tokenize
 from nltk.stem import WordNetLemmatizer
+from sklearn.model_selection import GridSearchCV
+from sklearn.metrics import precision_score, recall_score, accuracy_score, f1_score
 import pickle
 
 import nltk
@@ -56,15 +58,20 @@ def build_model():
                     ('tfidf', TfidfTransformer()),
                     ('clf', MultiOutputClassifier(RandomForestClassifier()) )
                 ])
-    return pipeline
+
+    parameters = {  'vect__max_df': (0.5, 0.75, 1.0),
+                    'clf__estimator__n_estimators': [10, 20, 50],
+                    'clf__estimator__min_samples_split': [2, 3, 5]
+              }
+    cv = GridSearchCV(pipeline, param_grid= parameters)
+
+    return cv
 
 def evaluate_model(model, X_test, Y_test, category_names):
     """
         This function will print out the information of accuracy, precision, recall scores of 36 categories
     """
     y_pred = model.predict(X_test)
-
-    from sklearn.metrics import precision_score, recall_score, accuracy_score, f1_score
     
     for k in range(len(category_names)):
         print('Number of category ', k, '\t name: ', category_names[k], '.\n')
@@ -75,7 +82,7 @@ def evaluate_model(model, X_test, Y_test, category_names):
              )
 
 def save_model(model, model_filepath):
-    """Save model's best_estimator_ using pickle"""
+    """ Save model's best_estimator_ using pickle"""
     pickle.dump(model.best_estimator_, open(model_filepath, 'wb'))
 
 
@@ -84,7 +91,7 @@ def main():
         database_filepath, model_filepath = sys.argv[1:]
         print('Loading data...\n    DATABASE: {}'.format(database_filepath))
         X, Y, category_names = load_data(database_filepath)
-        X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2)
+        X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.33)
         
         print('Building model...')
         model = build_model()
