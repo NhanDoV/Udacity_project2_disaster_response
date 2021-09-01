@@ -1,4 +1,10 @@
 # Disaster Response Pipeline Project
+# Summary
+- This project will include a `web app` where an emergency worker can input a new message and get classification results in several categories. The `web app` will also display visualizations of the data. 
+
+- The purpose of the project is to build a model for an API that classifies disaster messages. Using the web app an emergency worker can input a new message and get classification results in several categories so to have an idea what kind of help is needed: "water", "shelter", "food", etc.
+
+# Instruction
 In a terminal that contains this README file, run commands in the following sequence:
 
 `python data/process_data.py` `data/disaster_messages.csv` `data/disaster_categories.csv` `data/DisasterResponse.db`
