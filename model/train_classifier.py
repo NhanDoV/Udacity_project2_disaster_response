@@ -13,7 +13,14 @@ import nltk
 nltk.download(['punkt', 'wordnet'])
 
 def load_data(database_filepath):
-    
+    """
+        This function will load the dataset from a database_path in the processing stage,
+        Return 
+            X: dataframe of messages
+            y : dataframe of 36 categories output
+            category_names : name of 36 categories
+    """
+
     engine = create_engine('sqlite:///InsertDatabaseName.db')
     df = pd.read_sql_table(database_filepath, engine)
     X = df['message'].values
@@ -23,6 +30,10 @@ def load_data(database_filepath):
     return X, y, category_names 
 
 def tokenize(text):
+    """
+        This function will normalize, removed stop words, stemmed and lemmatized.
+        Returns tokenized text
+    """
 
     tokens = word_tokenize(text)
     lemmatizer = WordNetLemmatizer()
@@ -35,6 +46,10 @@ def tokenize(text):
     return clean_tokens
 
 def build_model():
+    """
+        This function will set up a pipeline which prepare for training model
+    """
+
     pipeline = Pipeline([
                     ('vect', CountVectorizer(tokenizer=tokenize)),
                     ('tfidf', TfidfTransformer()),
@@ -43,6 +58,9 @@ def build_model():
     return pipeline
 
 def evaluate_model(model, X_test, Y_test, category_names):
+    """
+        This function will print out the information of accuracy, precision, recall scores of 36 categories
+    """
     y_pred = model.predict(X_test)
 
     from sklearn.metrics import precision_score, recall_score, accuracy_score
