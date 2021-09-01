@@ -22,17 +22,29 @@ In the web app, you may input any text message (in English) and it will categori
 This project requires Python 3.x and the following Python libraries:
 
 `NumPy`
+
 `Pandas`
+
 `Matplotlib`
+
 `Json`
+
 `Plotly`
+
 `Nltk`
+
 `Flask`
+
 `Sklearn`
+
 `Sqlalchemy`
+
 `Sys`
+
 `Re`
+
 `Pickle`
+
 `Seaborn`
 
 You will also need to have software installed to run and execute an iPython Notebook.
