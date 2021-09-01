@@ -41,22 +41,22 @@ You will also need to have software installed to run and execute an iPython Note
 # Code and data
 The coding for this project can be completed using the Project Workspace IDE provided. Here's the file structure of the project:
 
-- app
-| - template
-| |- master.html  # main page of web app
-| |- go.html  # classification result page of web app
-|- run.py  # Flask file that runs app
+        - app
+        | - template
+        | |- master.html  # main page of web app
+        | |- go.html  # classification result page of web app
+        |- run.py  # Flask file that runs app
 
-- data
-|- disaster_categories.csv  # data to process 
-|- disaster_messages.csv  # data to process
-|- process_data.py
-|- InsertDatabaseName.db   # database to save clean data to
+        - data
+        |- disaster_categories.csv  # data to process 
+        |- disaster_messages.csv  # data to process
+        |- process_data.py
+        |- InsertDatabaseName.db   # database to save clean data to
 
-- models
-|- train_classifier.py
-|- classifier.pkl  # saved model 
+        - models
+        |- train_classifier.py
+        |- classifier.pkl  # saved model 
 
-- ETL Pipeline Preparation.ipynb # notebook file of Project Workspace - ETL
-- ML Pipeline Preparation.ipynb # notebook file of Project Workspace - Machine Learning Pipeline.
-- README.md
+        - ETL Pipeline Preparation.ipynb # notebook file of Project Workspace - ETL
+        - ML Pipeline Preparation.ipynb # notebook file of Project Workspace - Machine Learning Pipeline.
+        - README.md
