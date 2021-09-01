@@ -7,9 +7,9 @@ In a terminal that contains this README file, run commands in the following sequ
 
 `python run.py`
 
-Go to the website http://0.0.0.0:3001/ and if facing problems try http://localhost:3001 in a browser
+Go to the [website](http://0.0.0.0:3001/) and if facing problems try http://localhost:3001 in a browser
 
-In the web app, you may input any text message (in English) and it will categorize it among 36 categories, as in this [notebook](https://github.com/Nhan121/Udacity_project2_disaster_response/blob/main/ML%20Pipeline%20Preparation.ipynb).
+In the web app, you may input any text message (in English) and it will categorize it among 36 categories, as displayed in this [notebook](https://github.com/Nhan121/Udacity_project2_disaster_response/blob/main/ML%20Pipeline%20Preparation.ipynb).
 
 # Webapp screenshoot
 ![alt text](https://github.com/Nhan121/Udacity_project2_disaster_response/blob/main/Fig_1_1.jpg)
