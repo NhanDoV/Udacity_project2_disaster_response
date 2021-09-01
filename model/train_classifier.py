@@ -8,6 +8,7 @@ from sklearn.multioutput import MultiOutputClassifier
 from sklearn.ensemble import RandomForestClassifier
 from nltk import word_tokenize
 from nltk.stem import WordNetLemmatizer
+import pickle
 
 import nltk
 nltk.download(['punkt', 'wordnet'])
@@ -63,18 +64,19 @@ def evaluate_model(model, X_test, Y_test, category_names):
     """
     y_pred = model.predict(X_test)
 
-    from sklearn.metrics import precision_score, recall_score, accuracy_score
+    from sklearn.metrics import precision_score, recall_score, accuracy_score, f1_score
     
     for k in range(len(category_names)):
         print('Number of category ', k, '\t name: ', category_names[k], '.\n')
         print('\t Accuracy = ', (y_pred[:, k] == Y_test[:,k]).mean(),
               '\t % Precision: \t', precision_score(Y_test[:,k], y_pred[:,k]),
-              '\t % Recall : \t', recall_score(Y_test[:,k], y_pred[:,k])
+              '\t % Recall : \t', recall_score(Y_test[:,k], y_pred[:,k]),
+              '\t % F1_score : \t', f1_score(Y_test[:,k], y_pred[:,k])
              )
 
 def save_model(model, model_filepath):
-    import pickle
-    pickle.dump(model, open(model_filepath, 'wb'))
+    """Save model's best_estimator_ using pickle"""
+    pickle.dump(model.best_estimator_, open(model_filepath, 'wb'))
 
 
 def main():
