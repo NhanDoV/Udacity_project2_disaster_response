@@ -1,18 +1,32 @@
 import sys
+import sqlite3
+import pandas as pd
+import numpy as np
+import sqlite3
+from sqlalchemy import create_engine
 
 def load_data(messages_filepath, categories_filepath):
+    """This function used to load dataset from the given 2 links of categories & messages"""
+    # load messages dataset
     messages = pd.read_csv(messages_filepath)
+
+    # load categories dataset
     categories = pd.read_csv(categories_filepath) 
+
+    #merging datasets
     df = pd.merge(left = messages, right = categories, on = 'id')
     
     return df
 
 def clean_data(df):
+    """This function is used to clean dataset after merging"""
+    # split categoriescategories
     categories = df['categories'].str.split(pat = ';',     # pattern 
                                         expand = True  # expand or not
                                        )
     row = categories.iloc[0, :]
     category_colnames = row.apply(lambda x: x.split('-')[0])
+    # plug into column-name
     categories.columns = category_colnames
     for column in categories:
         # set each value to be the last character of the string
@@ -29,6 +43,8 @@ def clean_data(df):
     return df
 
 def save_data(df, database_filename):
+    """This function help to save dataframe to database"""
+
     from sqlalchemy.engine import create_engine
     engine = create_engine('sqlite:///InsertDatabaseName.db')
     df.to_sql(database_filename, engine, index=False)  
